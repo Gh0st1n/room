@@ -1,9 +1,8 @@
 import type { ReactNode } from 'react';
 
 export default function Layout({ children, extend }: {children: ReactNode, extend?: string}){
-    return (<div className={`lg:bg-red-400 md:bg-blue-400 sm:bg-green-500 bg-slate-500
-    max-w-7xl mx-auto flex ${extend ?? ''}
-    `}>  
+    // return (<div className={`w-${n ?? 1}/6 bg-amber-400`}>  
+    return (<div className={`${extend ?? 'w-1/4'} mx-12px bg-amber-400`}>  
         {children}
     </div>)
 }
