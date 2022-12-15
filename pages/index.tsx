@@ -3,6 +3,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import Layout from '../components/layout'
 import Column from '../components/column'
+import Comment from '../components/comment'
 
 export default function Home() {
   return (
@@ -13,21 +14,48 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Column extend="lg:w-1/4 md:w-88px sm:w-88px xs:hidden">
-        <nav>left</nav>
+        <div className="bg-blue-400 w-10 h-10 m-4">
+          </div>
+        <nav className="mx-4">
+          <div>Home</div>
+          <div>Explore</div>
+          <Link href="/blog">Blog</Link>
+        </nav>
       </Column>
       <Column extend="lg:w-1/2 md:w-2/3 sm:w-full w-full">
       <main>
-        <h1>
-          Welcome to <Link href="/blog">Next.js!111111</Link>
+        <div className="flex flex-row justify-between items-center mx-4 my-2">
+        <h1 className="text-3xl">
+          The Black Box Recorder
         </h1>
+        <div>
+          filter
+        </div>
+        </div>
+        <div className="mx-6">
+          <section>content to read</section>
+          <section>content to read</section>
+          <section>content to read</section>
+          <section>content to read</section>
+        </div>
       </main>
       </Column>
       <Column extend="lg:w-1/4 md:w-1/3 sm:w-1/3 xs:hidden">
       <div>
-        <aside>right</aside>
-        <footer>this is footer</footer>
+        <aside className="m-4">
+          <h2 className="text-xl">What&#39;s trending in my life</h2>
+          <div>Wabi-Sabi</div>
+          <div>How to master drawing</div>
+          <div>manifest</div>
+        </aside>
+        <aside className="m-4">
+          music for today
+          <div>ALINE SUPERSTAR by Beyonce</div>
+        </aside>
+        <footer className="mx-4">2022@tbbr.io</footer>
       </div>
       </Column>
+      {/* <Comment /> */}
       <div className="bg-green-400 absolute bottom-0 hidden xs:flex flex-row w-full">
         bottom
       </div>
