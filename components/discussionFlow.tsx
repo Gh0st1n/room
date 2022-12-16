@@ -1,12 +1,10 @@
 import { useMemo } from "react";
+import axios from 'axios';
 import useSWRInfinite from "swr/infinite";
 
 const PAGE_SIZE = 1;
 
-export default function DiscussionFlow(props){
-    const {initialData = {}} = props;
-    const fetcher = (...args) => fetch(...args).then((res) => res.json());
-  
+export default function DiscussionFlow(){
     const { data, error, isLoading, isValidating, mutate, size, setSize } = useSWRInfinite(
       (pageIndex, previousPageData)=>{
         // reach the end
@@ -16,7 +14,7 @@ export default function DiscussionFlow(props){
         if(pageIndex === 0) return `/api/discussions?first=${PAGE_SIZE}`;
         // add cursor to the API endpoint
         return `/api/discussions?first=${PAGE_SIZE}&after=${previousPageData.discussionNodes[previousPageData.discussionNodes.length-1].cursor}`
-      }, fetcher)
+      })
   
   
     const discussions = useMemo(()=>{

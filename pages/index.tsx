@@ -1,4 +1,5 @@
 import { SWRConfig } from "swr";
+import axios from 'axios';
 import Head from "next/head";
 import Link from "next/link";
 import Layout from "../components/layout";
@@ -9,6 +10,8 @@ import DiscussionFlow from "../components/discussionFlow";
 import { unstable_serialize } from 'swr/infinite';
 
 const PAGE_SIZE = 1;
+
+const fetcher = (url: string) => axios.get(url).then(res => res.data)
 
 export async function getServerSideProps(context: GetServerSidePropsContext) {
   const res = await fetch(`http://localhost:3000/api/discussions?first=${PAGE_SIZE}`);
@@ -47,7 +50,10 @@ interface IProps extends PropsData{
 
 export default function Home(props:IProps) {
   return (
-    <SWRConfig value={{ fallback: props.fallback }}>
+    <SWRConfig value={{ 
+      fallback: props.fallback,
+      fetcher
+      }}>
     <Layout>
       <Head>
         <title>Create Next App</title>
