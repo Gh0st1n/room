@@ -1,13 +1,12 @@
 import { IDiscussionRes } from './../../lib/types/adapter';
 import { NextApiRequest, NextApiResponse } from 'next';
-import 'dotenv';
+import 'dotenv/config';
 import { Octokit } from 'octokit';
 import { createAppAuth } from '@octokit/auth-app';
-import fs from 'fs';
-import path from 'path';
 
 
-const privateKey = fs.readFileSync(path.resolve(process.cwd(),`${process.env.PEM_FILENAME}`), { encoding: "utf8" });
+// const privateKey = fs.readFileSync(path.resolve(process.cwd(),`${process.env.PEM_FILENAME}`), { encoding: "utf8" });
+const privateKey = process.env.GITHUB_PRIVATE_KEY;
 
 const GET_DISSCUSSIONS_QUERY =()=> `query discussions {
     repository(owner: "Gh0st1n", name: "tbbr.io") {
