@@ -84,7 +84,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     // authenticate as an installation
     await octokit.rest.apps.getAuthenticated();
 
-    const discussionData: {repository: IDiscussionRess} = await octokit.graphql(GET_DISSCUSSIONS_QUERY())
+    const discussionData: {repository: IDiscussionRes} = await octokit.graphql(GET_DISSCUSSIONS_QUERY())
 
     res.status(200).json(discussionData.repository)
 }
