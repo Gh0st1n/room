@@ -6,7 +6,6 @@ import path from 'path';
 import { NextApiRequest, NextApiResponse } from 'next';
 import { IDiscussion, IDiscussionRes } from '../../../lib/types/adapter';
 
-
 const privateKey = fs.readFileSync(path.resolve(process.cwd(),`${process.env.PEM_FILENAME}`), { encoding: "utf8" });
 
 interface IQuery {
