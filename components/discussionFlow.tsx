@@ -46,6 +46,7 @@ export default function DiscussionFlow(){
             console.log('inView',size);
             setSize(size+1)
         }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     },[inView])
 
     return <div className="mx-6 h-full">
