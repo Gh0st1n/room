@@ -8,6 +8,7 @@ import { GetServerSidePropsContext } from "next";
 import { IDiscussion } from "../lib/types/adapter";
 import DiscussionFlow from "../components/discussionFlow";
 import { unstable_serialize } from 'swr/infinite';
+import Nav from "../components/nav";
 
 const PAGE_SIZE = 1;
 
@@ -62,12 +63,14 @@ export default function Home(props:IProps) {
       </Head>
       <Column extend="lg:w-1/4 md:w-88px sm:w-88px xs:hidden shrink-0 relative">
         <div className="fixed top-0 h-screen overflow-hidden">
-        <div className="bg-blue-400 w-10 h-10 m-4"></div>
+          <Nav />
+        {/* <div className="bg-blue-400 w-10 h-10 m-4"></div>
         <nav className="mx-4">
           <div>Home</div>
-          <div>Explore</div>
+          <div>Books & Magazines</div>
+          <div>3d library</div>
           <Link href="/blog">Blog</Link>
-        </nav>
+        </nav> */}
           </div>
       </Column>
       <main className="flex flex-row flex-1">
