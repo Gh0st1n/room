@@ -15,7 +15,7 @@ const PAGE_SIZE = 1;
 const fetcher = (url: string) => axios.get(url).then(res => res.data)
 
 export async function getServerSideProps(context: GetServerSidePropsContext) {
-  const res = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/discussions?first=${PAGE_SIZE}`);
+  const res = await fetch(`${process.env.NEXT_PUBLIC_SITE_URL}/api/discussions?first=${PAGE_SIZE}`);
   const data = await res.json();
   const { discussionNodes, totalCount} = data || {};
 
